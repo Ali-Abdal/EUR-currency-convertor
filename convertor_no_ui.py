@@ -3,7 +3,7 @@ import requests
 
 base_url = 'http://api.exchangeratesapi.io/v1'
 endpoint = 'latest'
-access_key = '' # each acc has differant key
+access_key = 'access_key=8ee28eec0c01266b9c8d9f53894669ce' # each acc has differant key
 currency = input('Convert from EUR to (currency):\n> ')
 quantity = float(input(f"How much EUR do you want to convert:\n> "))
 
@@ -15,9 +15,6 @@ response = requests.get(full_url)
 if response.ok:
     data = response.json()
     rate = data['rates'][currency]
-    
-    print(data)
-    print(rate)
 
     result = quantity * rate
     print(result)
