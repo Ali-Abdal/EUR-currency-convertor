@@ -135,3 +135,51 @@ else:
     print(f"Error {response.status_code}")
     print(response.json()['error']['message'])
 ```
+
+## full code
+```
+import requests
+
+base_url = 'http://api.exchangeratesapi.io/v1/latest'
+access_key = 'access_key=8ee28eec0c01266b9c8d9f53894669ce' 
+currency = input('Convert from EUR to (currency):\n> ')
+quantity = float(input(f"How much EUR do you want to convert:\n> "))
+
+full_url = base_url + '?' + access_key + '&symbols=' + currency
+
+response = requests.get(full_url)
+
+if response.ok:
+    data = response.json()
+    rate = data['rates'][currency]
+
+    result = quantity * rate
+    
+    print(f"\n{quantity} EUR is equal to {round(result,2)} {currency}")
+
+else:
+    print(f"Error {response.status_code}")
+    print(response.json()['error']['message'])
+```
+
+### output:
+
+if successful: 
+```
+Convert from EUR to (currency):
+> KWD
+How much EUR do you want to convert:
+> 10
+
+10.0 EUR is equal to 3.37 KWD
+```
+
+if unsuccessful:
+```
+Convert from EUR to (currency):
+> kdkd
+How much EUR do you want to convert:
+> 10
+Error 400
+You have provided one or more invalid Currency Codes. [Required format: currencies=EUR,USD,GBP,...]
+```
