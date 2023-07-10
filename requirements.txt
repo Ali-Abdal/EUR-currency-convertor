@@ -1,0 +1,6 @@
+
+mac:
+python3 pip install requests
+
+windows:
+python pip install requests
