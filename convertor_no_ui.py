@@ -17,7 +17,6 @@ if response.ok:
     rate = data['rates'][currency]
 
     result = quantity * rate
-    print(result)
     
     print(f"\n{quantity} EUR is equal to {round(result,2)} {currency}, based upon exchane rates on {data['date']}")
 
