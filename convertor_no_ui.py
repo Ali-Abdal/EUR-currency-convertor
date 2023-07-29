@@ -1,7 +1,7 @@
 import requests
 
 base_url = 'http://api.exchangeratesapi.io/v1/latest'
-access_key = 'access_key=8ee28eec0c01266b9c8d9f53894669ce' 
+access_key = 'your key' 
 currency = input('Convert from EUR to (currency):\n> ')
 quantity = float(input(f"How much EUR do you want to convert:\n> "))
 
